@@ -1,0 +1,23 @@
+{% extends "littlelinksite/base.html" %}
+  
+{% block title %}URL Shortner - Make your URL shorter!{% endblock %}
+  
+{% block content %}
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <form action='.' method='POST'>{% csrf_token %}
+                {{ form.as_p }}
+                <button id="submitButton" class="btn btn-primary">Submit</button></p> 
+        </form>
+    </div>
+    <div class="panel-footer">
+        <span id="url-result">
+        {% if not littlelink %}Enter the URL above and click submit!{% endif %}
+        {% if littlelink %}<a href={{littlelink}}>{{littlelink}}</a>{% endif%}
+        
+        </span>
+    </div>
+</div>
+
+{% endblock %}
