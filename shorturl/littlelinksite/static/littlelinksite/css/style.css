@@ -25,3 +25,7 @@ header {
     color: #3055bb;
     display: hidden;
 }
+
+.errorlist li {
+    color: #e21f1f
+}

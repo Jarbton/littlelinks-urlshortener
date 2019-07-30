@@ -7,9 +7,14 @@ class UrlForm(forms.ModelForm):
         label='',
         widget=forms.TextInput(attrs={"placeholder": "http://www.tesla.com"})
     )
+    word_url = forms.BooleanField(
+        required=False,
+        label='Three Word URL:'
+    )
 
     class Meta:
         model = Shorturl
         fields = [
-            'orig_url'
+            'orig_url',
+            'word_url'
         ]
