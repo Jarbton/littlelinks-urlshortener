@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-SITE_URL = "https://littlelinks-urlshortener.herokuapp.com/"
+SITE_URL = "https://littlelinks-urlshortener.herokuapp.com"
 
 INSTALLED_APPS = [
     'littlelinksite.apps.LittlelinksiteConfig',
