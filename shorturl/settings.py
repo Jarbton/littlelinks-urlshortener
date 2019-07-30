@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-SITE_URL = "http://localhost:8000"
+SITE_URL = "https://littlelinks-urlshortener.herokuapp.com/"
 
 INSTALLED_APPS = [
     'littlelinksite.apps.LittlelinksiteConfig',
@@ -122,6 +122,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+print(PROJECT_ROOT)
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
