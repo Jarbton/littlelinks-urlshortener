@@ -11,6 +11,7 @@ class ShorturlAdmin(admin.ModelAdmin):
         ('Date information',    {'fields': ['pub_date']})
     ]
 
+    readonly_fields=('pub_date',)
     list_display = ('orig_url', 'new_url_id', 'no_clicks', 'pub_date')
     list_filter = ['pub_date']
     search_fields = ['orig_url']
