@@ -7,7 +7,7 @@ class UrlForm(forms.ModelForm):
         label='',
         widget=forms.TextInput(attrs={"placeholder": "http://www.tesla.com"})
     )
-    word_url = forms.BooleanField(
+    word_url_bool = forms.BooleanField(
         required=False,
         label='Three Word URL:'
     )
@@ -16,5 +16,5 @@ class UrlForm(forms.ModelForm):
         model = Shorturl
         fields = [
             'orig_url',
-            'word_url'
+            'word_url_bool'
         ]

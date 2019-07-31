@@ -1,22 +1,53 @@
 {% extends "littlelinksite/base.html" %}
   
-{% block title %}URL Shortner - Make your URL shorter!{% endblock %}
+{% block title %}LittleLinks - Make your URL shorter!{% endblock %}
   
 {% block content %}
+    <div class="col-sm-10 col-lg-8">
+        <div class="row">
+            <div class="col text-center" style="margin-top: 50px">
+                <img src="../static/littlelinksite/img/hyperlink-2.svg">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center" style="margin-top: 10px">
+                <h1>LittleLinks</h1>    
+            </div>
+        </div>
+        <div class="row">
+            <div class="col" style="margin-top: 10px">
+                <div class="container-fluid">
+                    <div class="card text-center">
+                        <div class="card-header">
+                            Little that link!
+                        </div>
+                        <div class="card-body">
+                            <form action='.' method='POST'>{% csrf_token %}
+                                <form class="px-4 py-3">
+                                    <div class="form-group">
+                                        {{ form.orig_url }}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="{{ form.message.id_for_label }}">Three word URL:</label>
+                                        {{ form.word_url_bool }}
+                                    </div>
+                                    <button id="submitButton" class="btn btn-primary">Submit</button></p>
+                                </form>
+                            </form>
+                        </div>
+                        <div class="card-footer text-muted">
+                            <!-- TODO: Add if statement -->
+                            {% if not littlelink %}Enter the URL above and click submit!{% endif %}
+                            {% if littlelink %}<a href={{littlelink}}>{{littlelink}}</a>{% endif %}
+                            {{ form.non_field_errors }}
+                            {{ form.orig_url.errors }}
+                            {{ form.word_url_bool.errors }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<div class="panel panel-default">
-    <div class="panel-body">
-        <form action='.' method='POST'>{% csrf_token %}
-                {{ form.as_p }}
-                <button id="submitButton" class="btn btn-primary">Submit</button></p>
-        </form>
-    </div>
-    <div class="panel-footer">
-        <span id="url-result">
-        {% if not littlelink %}Enter the URL above and click submit!{% endif %}
-        {% if littlelink %}<a href={{littlelink}}>{{littlelink}}</a>{% endif %}
-        </span>
-    </div>
-</div>
 
 {% endblock %}

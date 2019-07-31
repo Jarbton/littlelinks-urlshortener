@@ -13,13 +13,6 @@ header {
     padding-bottom: 10px;
     clear: both;
 }
-     
-#wrap {
-    max-width: 700px;
-    margin: 5px 10px 10px 10px;
-    padding: 10px;
-    text-align: left;
-}
 
 #url-result {
     color: #3055bb;

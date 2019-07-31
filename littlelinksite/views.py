@@ -30,7 +30,7 @@ class IndexView(View):
         context = { 'form' : form }
 
         if form.is_valid():
-            word_url_bool = form.cleaned_data['word_url']
+            word_url_bool = form.cleaned_data['word_url_bool']
             if word_url_bool:
                 new_url_id = get_new_word_url()
             else:
@@ -45,6 +45,7 @@ class IndexView(View):
             context["littlelink"] = output_url
 
         return render(request, self.template_name, context)
+
 
 def redirect_original(request, new_url_id):
     url = get_object_or_404(Shorturl, pk=new_url_id)
