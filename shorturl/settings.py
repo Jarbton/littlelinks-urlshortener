@@ -34,13 +34,13 @@ ALLOWED_HOSTS = []
 SITE_URL = "https://littlelinks-urlshortener.herokuapp.com"
 
 INSTALLED_APPS = [
-    'littlelinksite.apps.LittlelinksiteConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'littlelinksite.apps.LittlelinksiteConfig',
 ]
 
 MIDDLEWARE = [
@@ -125,5 +125,11 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 print(PROJECT_ROOT)
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+
+
+# Login redirect address
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 django_heroku.settings(locals())

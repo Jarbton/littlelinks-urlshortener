@@ -1,0 +1,96 @@
+{% extends "littlelinksite/base.html" %}
+
+{% block content %}
+
+<div class="col-sm-10 col-lg-8">
+        <div class="row">
+            <div class="col text-center" style="margin-top: 50px">
+                <a href="/">
+                <img src="../../static/littlelinksite/img/hyperlink-2.svg"></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center" style="margin-top: 10px">
+                <h1>LittleLinks</h1>    
+            </div>
+        </div>
+        <div class="row">
+            <div class="col" style="margin-top: 10px">
+                <div class="container-fluid">
+                    <div class="card text-center">
+                        <div class="card-header">
+                            Delete LittleLink :(
+                        </div>
+                        <div class="card-body">
+                            <form action='.' method='POST'>{% csrf_token %}
+                                <form class="px-4 py-3">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h3>Are you sure you want to delete the following LittleLink?</h3>
+                                        </div>
+                                    </div>
+                                    <div class="table-responsive-sm">
+                                        <table class="table">
+                                            <thead>
+                                                <th scope="col">Original URL</th>
+                                                <th scope="col">New URL ID</th>
+                                                <th scope="col">No. Clicks</th>
+                                                <th scope="col">Date</th>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>{{ object.orig_url }}</td>
+                                                    <td>{{ object.new_url_id }}</td>
+                                                    <td>{{ object.no_clicks }}</td>
+                                                    <td>{{ object.pub_date|date:'d-m-Y' }}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col text-right">
+                                            <button id="submitButton" class="btn btn-danger">Confirm</button>
+                                        </div>
+                                        <div class="col text-left">
+                                            <a href="/mylittlelinks" class="btn btn-outline-secondary">Cancel</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </form>
+                        </div>
+                        <div class="card-footer text-muted">
+                            Press 'Confirm' to permanently delete this LittleLink
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- <form method="post">{% csrf_token %}
+        <p>Are you sure you want to delete the following littlelink?</p>
+        <div class="table-responsive-sm">
+            <table class="table">
+                <thead>
+                    <th scope="col">Original URL</th>
+                    <th scope="col">New URL ID</th>
+                    <th scope="col">No. Clicks</th>
+                    <th scope="col">Date</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ object.orig_url }}</td>
+                        <td>{{ object.new_url_id }}</td>
+                        <td>{{ object.no_clicks }}</td>
+                        <td>{{ object.pub_date }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <input type="submit" value="Confirm">
+        
+    </form> -->
+
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "littlelinksite/base.html" %}
+
+{% block navbar %}
+{% include "littlelinksite/navbar.html" %}
+{% endblock %}
+
+{% block content %}
+  
+  <div class="col">
+    <div class="row">
+        <div class="col text-center" style="margin-top: 50px">
+            <a href="/">
+            <img src="../../static/littlelinksite/img/hyperlink-2.svg"></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col text-center" style="margin-top: 10px">
+            <h1>My LittleLinks</h1>    
+        </div>
+    </div>
+    <div class="row">
+      <div class="col text-center">
+        {% if shorturl_list %}
+          <div class="table-responsive-sm table-borderless">
+            <table class="table">
+              <thead>
+                <th scope="col">Original URL</th>
+                <th scope="col">New URL ID</th>
+                <th scope="col">No. Clicks</th>
+                <th scope="col">Date</th>
+                <th scope="col">Action</th>
+              </thead>
+              <tbody>
+                {% for shorturl in shorturl_list %}
+                  <tr>
+                    <td>{{ shorturl.orig_url }}</td>
+                    <td>{{ shorturl.new_url_id }}</td>
+                    <td>{{ shorturl.no_clicks }}</td>
+                    <td>{{ shorturl.pub_date|date:'d-m-Y' }}</td>
+                    <td><a href="{{ shorturl.new_url_id }}/delete/" class="btn btn-outline-danger">Delete</a></td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        {% else %}
+          <p>You haven't little'd any links!</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <!-- <h1>Short URL</h1>
+  {% if shorturl_list %}
+  <ul>
+    {% for shorturl in shorturl_list %}
+      <li>
+        <a href="{{ shorturl.get_absolute_url }}">{{ shortuq.orig_url }}</a> ({{shorturl.new_url_id}})
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no urls in the library.</p>
+  {% endif %}    -->
+      
+{% endblock %}

@@ -13,11 +13,13 @@
     <title>{% block title %}Welcome to LittleLinks{% endblock %}</title>
   </head>
   <body>
-    {% include "littlelinksite/navbar.html" %}
+    {% block navbar %}
+
+    {% endblock %}
     <div class="container">
-        <div class="row justify-content-center">    
+        <div class="row justify-content-center">
             {% block content %}
-    
+
             {% endblock %}
         </div>
     </div>
