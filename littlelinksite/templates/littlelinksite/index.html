@@ -30,8 +30,11 @@
                         <div class="card-body">
                             <form action='.' method='POST'>{% csrf_token %}
                                 <form class="px-4 py-3">
-                                    <div class="form-group">
-                                        {{ form.orig_url }}
+                                    <div class="row justify-content-center">
+                                        <div class="form-group" id="url-form">
+                                            {{ form.orig_url }}
+                                        </div>
+                                        <div id="output"></div>
                                     </div>
                                     <div class="form-group">
                                         <label for="{{ form.message.id_for_label }}">Three word URL:</label>

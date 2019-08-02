@@ -20,5 +20,9 @@ header {
 }
 
 .errorlist li {
-    color: #e21f1f
+    color: #e21f1f;
+}
+
+#val-img {
+    padding: 0px 10px;
 }
